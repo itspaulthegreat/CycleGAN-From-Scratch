@@ -3,7 +3,7 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
 IMG_CHANNELS = 3
-
+TRAIN_DIR = "data/train"
 
 transform = A.Compose([
     A.Resize(height=256,width=256),
