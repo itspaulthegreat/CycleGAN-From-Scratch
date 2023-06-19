@@ -62,15 +62,15 @@ def train(gen_h,gen_z,disc_h,disc_z,opti_gen,opti_disc,g_scaler,d_scaler,MSELoss
             cyle_ZLoss = L1Loss(zebra,cyclezebra)
             cyle_HLoss = L1Loss(horse,cyclehorse)
 
-            identityzebra = gen_z(zebra)
-            identityhorse = gen_h(horse)
-            identity_ZLoss = L1Loss(zebra,identityzebra)
-            identity_HLoss = L1Loss(horse,identityhorse)
+            # identityzebra = gen_z(zebra)
+            # identityhorse = gen_h(horse)
+            # identity_ZLoss = L1Loss(zebra,identityzebra)
+            # identity_HLoss = L1Loss(horse,identityhorse)
 
 
 
         G_Loss = (
-            gen_zloss + gen_hloss + (cyle_ZLoss * config.LAMBDA_CYCLE) + (cyle_HLoss * config.LAMBDA_CYCLE) + (identity_ZLoss * config.LAMBDA_IDENTITY) + (identity_HLoss * config.LAMBDA_IDENTITY)
+            gen_zloss + gen_hloss + (cyle_ZLoss * config.LAMBDA_CYCLE) + (cyle_HLoss * config.LAMBDA_CYCLE) #+ (identity_ZLoss * config.LAMBDA_IDENTITY) + (identity_HLoss * config.LAMBDA_IDENTITY)
         )
 
         opti_gen.zero_grad()
